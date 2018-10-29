@@ -1,0 +1,908 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>C440_DEMO_0723</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<style>
+		* {
+			-webkit-touch-callout: none; /*系统默认菜单被禁用*/
+			-webkit-user-select: none; /*webkit浏览器*/
+			-khtml-user-select: none; /*早期浏览器*/
+			-moz-user-select: none; /*火狐*/
+			-ms-user-select: none; /*IE10*/
+			user-select: none;
+		}
+		html, body {
+			position: relative;
+			height: 100%;
+			overflow-x:hidden;
+		}
+		body {
+
+			overflow-y:auto;
+			background: #000;
+			font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color:#000;
+			margin: 0;
+			padding: 0;
+		}
+		.swiper-container {
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #000;
+
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+		/*.swiper-slide1{*/
+		/*background: url(./images/bg1.jpg) no-repeat center;*/
+		/*background-size: cover;*/
+		/*}*/
+
+
+		.screen__inner {
+			position: absolute;
+			width: 568px;
+			height: 256px;
+			top: 50%;
+			left: 50%;
+			margin: -120px 0 0 -285px;
+			-webkit-perspective: 1000;
+			perspective: 1000;
+			/*overflow: hidden;*/
+		}
+		/*.screen1__cover1{*/
+		/*width:320px;*/
+		/*height: 504px;*/
+		/*left: 20px;*/
+		/*top: 0;*/
+		/*-webkit-background-size: 320px;*/
+		/*background-size: 320px;*/
+		/*position:absolute;*/
+		/*z-index:999;*/
+		/*}*/
+		.screen__inner1{
+			z-index: 100;
+		}
+
+		/*.screen1__mask {*/
+		/*background:  no-repeat red;*/
+		/*width:320px;*/
+		/*height: 504px;*/
+		/*left: 0px;*/
+		/*top:0;*/
+		/*-webkit-background-size: 320px;*/
+		/*background-size: 320px;*/
+		/*position: absolute;*/
+		/*z-index: 999;*/
+
+		/*}*/
+		.swiper-slide2{
+			height:  100px;
+		}
+
+		/*#handle{*/
+		/*background: url(./images/dian.png) no-repeat;*/
+		/*width:8px;*/
+		/*height: 8px;*/
+		/*top: 39%;*/
+		/*-webkit-background-size: 8px;*/
+		/*background-size: 8px;*/
+		/*position: absolute;*/
+		/*z-index: 999;*/
+		/*}*/
+		.screen__dian39,.screen__dian40,.screen__dian41,.screen__dian42,.screen__dian43,.screen__dian44,.screen__dian45,.screen__dian46,.screen__dian47,.screen__dian48,.screen__dian49,.screen__dian50,.screen__dian51,.screen__dian52,.screen__dian53,.screen__dian54,.screen__dian55,.screen__dian56,.screen__dian57,.screen__dian58,.screen__dian59,.screen__dian60,.screen__dian1,.screen__dian2,.screen__dian3,.screen__dian4,.screen__dian5,.screen__dian6,.screen__dian7,.screen__dian8,.screen__dian9,.screen__dian10,.screen__dian11,.screen__dian12,.screen__dian13,.screen__dian14,.screen__dian15,.screen__dian16,.screen__dian17,.screen__dian18,.screen__dian19,.screen__dian20,.screen__dian21,.screen__dian22,.screen__dian23{background: url(./images/dian.png) no-repeat;width: 8px;height: 8px;top: 39%;-webkit-background-size: 8px;background-size: 8px;position: absolute;z-index: 999;}
+		.screen__gt46,.screen__gt47,.screen__gt48,.screen__gt49,.screen__gt50,.screen__gt51,.screen__gt52,.screen__gt53,.screen__gt54,.screen__gt55,.screen__gt56,.screen__gt57,.screen__gt58,.screen__gt59,.screen__gt60,.screen__gt1,.screen__gt2,.screen__gt3,.screen__gt4,.screen__gt5,.screen__gt6,.screen__gt7,.screen__gt8,.screen__gt9,.screen__gt10,.screen__gt11,.screen__gt12,.screen__gt13,.screen__gt14,.screen__gt15{background: url(./images/dian.png) no-repeat;width: 8px;height: 8px;top: 52%;-webkit-background-size: 8px;background-size: 8px;position: absolute;z-index: 999;}
+		.screen__dian39{
+			left: 159px;
+		}
+		.screen__dian40{
+			left: 161px;
+		}
+		.screen__dian41{
+			left: 163px;
+		}
+		.screen__dian42{
+			left: 168px;
+		}
+		.screen__dian43{
+			left: 173px;
+		}
+		.screen__dian44{
+			left: 178px;
+		}
+		.screen__dian45{
+			left: 180px;
+		}
+		.screen__dian46{
+			left: 111px;
+		}
+		.screen__dian47{
+			left: 115px;
+		}
+		.screen__dian48{
+			left: 119px;
+		}
+		.screen__dian49{
+			left: 124px;
+		}
+		.screen__dian50{
+			left: 128px;
+		}
+		.screen__dian51{
+			left: 132px;
+		}
+		.screen__dian52{
+			left: 137px;
+		}
+		.screen__dian53{
+			left: 141px;
+		}
+		.screen__dian54{
+			left: 144px;
+		}
+		/*#handle{*/
+		/*background: url(./images/dian.png) no-repeat;*/
+		/*width:8px;*/
+		/*height: 8px;*/
+		/*-webkit-background-size: 8px;*/
+		/*background-size: 8px;*/
+		/*position: absolute;*/
+		/*z-index: 999;*/
+		/*}*/
+		.screen__dian55{
+			left: 147px;
+		}
+		.screen__dian56{
+			left: 150px;
+		}
+		.screen__dian57{
+			left: 152px;
+		}
+		.screen__dian60{
+			left: 155px;
+		}
+		.screen__dian58{
+			left: 154px;
+		}
+		.screen__dian59{
+			left: 155px;
+		}
+		.screen__dian23 {
+			left: 163px;
+		}
+		.screen__dian22 {
+			left: 156px;
+		}
+		.screen__dian21 {
+			left: 155px;
+		}
+		/*.screen__dian20 {*/
+		/*left: 138px;*/
+		/*}*/
+		.screen__dian20{
+			left: 146px;
+		}
+		.screen__dian19{
+			left: 141px;
+		}
+		.screen__dian18{
+			left: 135px;
+		}
+		.screen__dian17{
+			left: 130px;
+		}
+		.screen__dian16{
+			left: 128px;
+		}
+		.screen__dian15{
+			left: 200px;
+		}
+		.screen__dian14{
+			left: 196px;
+		}
+		.screen__dian13{
+			left: 192px;
+		}
+		.screen__dian12{
+			left: 188px;
+		}
+		.screen__dian11{
+			left: 183px;
+		}
+		.screen__dian10{
+			left: 178px;
+		}
+		.screen__dian9{
+			left: 174px;
+		}
+		.screen__dian8{
+			left: 170px;
+		}
+		.screen__dian7{
+			left: 167px;
+		}
+		.screen__dian6{
+			left: 163px;
+		}
+		.screen__dian5{
+			left: 160px;
+		}
+		.screen__dian4{
+			left: 158px;
+		}
+		.screen__dian3{
+			left: 157px;
+		}
+		.screen__dian2{
+			left: 156px;
+		}
+		.screen__dian1{
+			left: 155px;
+		}
+
+		.screen__gt46{
+			left: 69px;
+		}
+		.screen__gt47{
+			left: 77px;
+		}
+		.screen__gt48{
+			left: 89px;
+		}
+		.screen__gt49{
+			left: 98px;
+		}
+		.screen__gt50{
+			left: 105px;
+		}
+		.screen__gt51{
+			left: 113px;
+		}
+		.screen__gt52{
+			left: 120px;
+		}
+		.screen__gt53{
+			left: 128px;
+		}
+		.screen__gt54{
+			left: 134px;
+		}
+		.screen__gt55{
+			left: 140px;
+		}
+		.screen__gt56{
+			left: 145px;
+		}
+
+		.screen__gt57{
+			left: 151px;
+		}
+		.screen__gt58{
+			left: 153px;
+		}
+		.screen__gt59{
+			left: 155px;
+		}
+		.screen__gt60{
+			left: 156px;
+		}
+		.screen__gt1{
+			left: 156px;
+		}
+		/*.screen__gt2{*/
+		/*background: url(./images/dian.png) no-repeat;*/
+		/*width:8px;*/
+		/*height: 8px;*/
+		/*-webkit-background-size: 8px;*/
+		/*background-size: 8px;*/
+		/*position: absolute;*/
+		/*z-index: 999;*/
+		/*left: 157px;*/
+		/*top: 52%;*/
+		/*}*/
+		.screen__gt2{
+			left: 158px;
+		}
+		.screen__gt3{
+			left: 160px;
+		}
+		.screen__gt4{
+			left: 161px;
+		}
+		.screen__gt5{
+			left: 166px;
+		}
+		.screen__gt6{
+			left: 170px;
+		}
+		.screen__gt7{
+			left: 177px;
+		}
+		.screen__gt8{
+			left: 183px;
+		}
+		.screen__gt9{
+			left: 188px;
+		}
+		.screen__gt10{
+			left: 197px;
+		}
+		.screen__gt11{
+			left: 205px;
+		}
+		.screen__gt12{
+			left: 215px;
+		}
+		.screen__gt13{
+			left: 223px;
+		}
+		.screen__gt14{
+			left: 233px;
+		}
+		.screen__gt15{
+			left: 237px;
+		}
+		.screen__eng{
+			background: url(./images/dian.png) no-repeat;
+			width:8px;
+			height: 8px;
+			-webkit-background-size: 8px;
+			background-size: 8px;
+			position: absolute;
+			z-index: 999;
+			left: 49%;
+			top: 30%;
+		}
+		.dian{display: none}
+		.swiper-slidehide{display: none}
+		/*.swiper-slide {*/
+		/*overflow: auto;*/
+		/*-webkit-overflow-scrolling: touch;*/
+		/*}*/
+		.swiper-slide3{height:160px}
+		.swiper-slide-active{ height:auto;}
+
+
+		.screen__bg_yellow{
+			background: url(./images/screen__bg.jpg) no-repeat center;
+			background-size: cover;
+			width: 100%;
+			height: 100%;
+		}
+		.screen__home{
+			background: url(./images/screen__home.png) no-repeat;
+			width: 133px;
+			height: 54px;
+			-webkit-background-size: 133px;
+			background-size: 133px;
+			position: absolute;
+			z-index: 999;
+			top: 202px;
+			left: 435px;
+		}
+		.screen__inner .screen__menu{
+			background: url(./images/screen__menu.png) no-repeat;
+			width: 435px;
+			height: 54px;
+			-webkit-background-size: 435px;
+			background-size: 435px;
+			position: absolute;
+			/*z-index: 999;*/
+			top: 202px;
+			left: 0px;
+		}
+		#drageable{
+			background: url(./images/screen__btn.png);
+			width: 108px;
+			height: 80px;
+			position: absolute;
+			z-index: 999;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+			top: -22px;
+		}
+		.screen__pic1{
+			background: url(./images/screen__pic1.png);
+			width: 108px;
+			height: 80px;
+			position: absolute;
+			z-index: 999;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+		}
+		.screen__pic2{
+			display: none;
+			background: url(./images/screen__pic2.png);
+			width: 108px;
+			height: 80px;
+			position: absolute;
+			z-index: 999;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+		}
+		.screen__pic3{
+			display: none;
+			background: url(./images/screen__pic3.png);
+			width: 108px;
+			height: 80px;
+			position: absolute;
+			z-index: 999;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+		}
+		.screen__pic4{
+			display: none;
+			background: url(./images/screen__pic4.png);
+			width: 108px;
+			height: 80px;
+			position: absolute;
+			z-index: 199;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+		}
+		#drageable2{
+			/*background: beige;*/
+			width: 108px;
+			height: 54px;
+			position: absolute;
+			z-index: 992;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+			left: 112px;
+
+		}
+		#drageable3{
+			/*background: blue;*/
+			width: 108px;
+			height: 54px;
+			position: absolute;
+			z-index: 992;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+			left: 217px;
+
+		}
+		#drageable4{
+			/*background: yellow;*/
+			width: 108px;
+			height: 54px;
+			position: absolute;
+			z-index: 992;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+			left: 325px;
+		}
+		#drageable1{
+			/*background: yellow;*/
+			width: 108px;
+			height: 54px;
+			position: absolute;
+			z-index: 992;
+			-webkit-background-size: 108px;
+			background-size: 108px;
+			left:0px;
+		}
+		.screen__txt1{
+			background: url(./images/screen__txt1.png) no-repeat;
+			width: 133px;
+			height: 218px;
+			-webkit-background-size: 133px;
+			background-size: 133px;
+			position: absolute;
+			z-index: 999;
+			top: -30px;
+			left: 435px;
+		}
+		.screen__txt2{
+			display: none;
+			background: url(./images/screen__txt2.png) no-repeat;
+			width: 133px;
+			height: 218px;
+			-webkit-background-size: 133px;
+			background-size: 133px;
+			position: absolute;
+			z-index: 999;
+			top: -30px;
+			left: 435px;
+		}
+		.screen__txt4{
+			display: none;
+			background: url(./images/screen__txt4.png) no-repeat;
+			width: 133px;
+			height: 218px;
+			-webkit-background-size: 133px;
+			background-size: 133px;
+			position: absolute;
+			/*z-index: 102;*/
+			top: -30px;
+			left: 435px;
+		}
+		.screen__txt3{
+			display: none;
+			background: url(./images/screen__txt3.png) no-repeat;
+			width: 133px;
+			height: 218px;
+			-webkit-background-size: 133px;
+			background-size: 133px;
+			position: absolute;
+			z-index: 999;
+			top: -30px;
+			left: 435px;
+		}
+
+		#Iframe4{
+			position: absolute;
+			top: -16px;
+			left: 0px;
+			width: 76.5%;
+			height: 85%;
+			z-index: 98;
+			display: none;
+		}
+		/*.screen__index{*/
+			/*z-index: 999;*/
+		/*}*/
+		#myCar3 {
+			display: none;
+			z-index: 101;
+			top: -49px;
+			width: 74%;
+			left: 0px;
+			height: 89%;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+<div class="loading">
+	<div class="loading auto-x auto-y">
+		<div class="loadings"></div>
+		<div id="percent">0%</div>
+	</div>
+	<p class="progress"></p>
+
+</div>
+<!-- Swiper -->
+<div class="swiper-container wrap" id="wrap" style="display: none">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide swiper-slide1 ">
+
+			<div class="screen__bg_yellow"></div>
+			<div class="wrap screen__inner" >
+
+				<!--<div class="moveing" id="handle"> </div>-->
+				<!--<div class="screen__gt" id="handle2"> </div>-->
+				<!--<div class="screen__eng" id="handle3"> </div>-->
+				<!--&lt;!&ndash;<div class="screen__dian1 dian"></div>&ndash;&gt;-->
+				<!--<div class="">-->
+				<!--<div class="slide1__txt1"></div>-->
+				<!--<div class="slide1__txt2"></div>-->
+				<!--<div class="slide1__notice"></div>-->
+				<!--<div class="slide1__hand"></div>-->
+				<!--</div>-->
+				<!--<div  id="myCar2" class="" style="opacity: 0" ></div>-->
+				<div  id="myCar3" class="" ></div>
+				<div class="screen__home"></div>
+				<div class="screen__txt1"></div>
+				<div class="screen__txt2"></div>
+				<div class="screen__txt3"></div>
+				<div class="screen__txt4"></div>
+				<div class="screen__menu" id="containment-wrapper">
+					<div id="drageable" class="draggable ui-widget-content">
+						<div class="screen__pic1"></div>
+						<div class="screen__pic2"></div>
+						<div class="screen__pic3"></div>
+						<div class="screen__pic4"></div>
+					</div>
+					<div id="drageable1" class="draggable ui-widget-content"></div>
+					<div id="drageable2" class="draggable ui-widget-content"></div>
+					<div id="drageable3" class="draggable ui-widget-content"></div>
+					<div id="drageable4" class="draggable ui-widget-content"></div>
+				</div>
+				<iframe  id="Iframe4"  src="https://support.iyuile.com/jn/test_farmmac_1.1/kr_3dview/krpano-1.19-pr16/viewer/krpano.html?xml=examples/webvr/krpano_vr.xml&html5=only+webgl"  width="510" height="250" scrolling="no" frameborder="0"  marginheight="0" marginwidth="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" ></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/swiper.js"></script>
+<script type="text/javascript" src="js/preload.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="config1.js"></script>
+<script type="text/javascript" src="share.js"></script>
+<!--<script type="text/javascript" src="js/3deye.min.js"></script>-->
+<!--<script type="text/javascript" src="js/3deye1.js"></script>-->
+<script type="text/javascript" src="js/3deye2.js"></script>
+<!--<script src="share.js"></script>-->
+</body>
+<script>
+
+
+    //
+    $(document).ready(function () {
+        $(`#handle3`).hide();
+        $(`#Iframe`).on('click',function (e) {
+                e.preventDefault();
+        })
+        setTimeout(function () {
+            $(`.slide1__notice`).fadeOut()
+            $(`.slide1__hand`).fadeOut()
+        },3000)
+        $(`#handle`).on(`touchend`,function () {
+            console.log(`mac`);
+            window.location.href="https://support.21bit.cn/kr_3dview/krpano-1.19-pr16/viewer/krpano.html?xml=examples/webvr/krpano_vr.xml&html5=only+webgl ";
+
+        });
+        $(`#handle2`).on(`touchend`,function () {
+            location.href="main.html"
+        })
+        $("#myCar3").vc3dEye2({
+            imagePath:"https://farmmachine123.oss-cn-beijing.aliyuncs.com/111_",
+            totalImages:60,
+            imageExtension:"png"
+        });
+        $(`#drageable4`).on(`touchend`,function () {
+			$(`#myCar3`).hide()
+        })
+        // $("#myCar").vc3dEye({
+        // 	imagePath:"https://farmmachine123.oss-cn-beijing.aliyuncs.com/1_",
+        // 	imagePath1:"http://localhost:63342/workspace/test_farmmac1.0/images/1/1_",
+        // 	totalImages:60,
+        // 	imageExtension:"png"
+        // });
+        // $("#myCar2").vc3dEye1({
+        // 	imagePath:"https://farmmachine123.oss-cn-beijing.aliyuncs.com/1_",
+        // 	totalImages:60,
+        // 	imageExtension:"png"
+        // });
+
+
+
+        window.addEventListener('orientationchange',detectOrient);
+        // scaleEle1(".screen1__txt1","center");
+        $(".wrap").on("touchmove",function(e){
+            e.preventDefault();
+        });
+        var isdrag=false;
+        var tx,x;
+        document.getElementById("drageable").addEventListener('touchend',function(){
+            sdrag = false;
+        });
+        document.getElementById("drageable").addEventListener('touchstart',selectmouse);
+        document.getElementById("drageable").addEventListener('touchmove',movemouse);
+        document.getElementById("drageable").addEventListener('touchend',function(e){
+            var pos =getPositsion(e)
+            console.log(pos)
+            var box=document.getElementById(`drageable`);
+            switch (pos){
+                case 1:
+                    // $("#drageable").css("left",speed);
+                    animate2(box,speed);
+                    getmove(1,2,3,4)
+                    $(`#Iframe4`).hide();
+                    $(`#myCar3`).hide();
+                    // $(`.screen__txt2`).fadeOut()
+                    // $(`.screen__txt3`).fadeOut()
+                    // $(`.screen__txt4`).fadeOut()
+                    // $(`.screen__txt1`).show()
+                    // $(`.screen__pic2`).fadeOut()
+                    // $(`.screen__pic3`).fadeOut()
+                    // $(`.screen__pic4`).fadeOut()
+                    // $(`.screen__pic1`).show()
+                    break;
+
+                case 2:
+                    // $(`#drageable`).css("left",speed)
+                    animate2(box,speed)
+                    getmove(2,1,3,4)
+                    $(`#Iframe4`).hide();
+                    $(`#myCar3`).hide();
+                    // $(`.screen__txt1`).fadeOut()
+                    // $(`.screen__txt3`).fadeOut()
+                    // $(`.screen__txt4`).fadeOut()
+                    // $(`.screen__txt2`).show()
+                    // $(`.screen__pic1`).fadeOut()
+                    // $(`.screen__pic3`).fadeOut()
+                    // $(`.screen__pic4`).fadeOut()
+                    // $(`.screen__pic2`).show()
+                    setTimeout(function () {
+                        // location.href="main.html"
+                    },500)
+                    break;
+                case 3:
+                    // $(`#drageable`).css("left",speed)
+                    animate2(box,speed)
+                    getmove(3,1,4,2)
+                    $(`#Iframe4`).hide();
+                    $(`#myCar3`).show();
+                    // $(`.screen__txt1`).fadeOut()
+                    // $(`.screen__txt2`).fadeOut()
+                    // $(`.screen__txt4`).fadeOut()
+                    // $(`.screen__txt3`).show()
+                    // $(`.screen__pic1`).fadeOut()
+                    // $(`.screen__pic2`).fadeOut()
+                    // $(`.screen__pic4`).fadeOut()
+                    // $(`.screen__pic3`).show()
+                    break;
+                case 4:
+                    // $(`#drageable`).css("left",speed)
+                    animate2(box,speed)
+                    getmove(4,1,3,2)
+                // $(`.screen__txt1`).fadeOut()
+                // $(`.screen__txt2`).fadeOut()
+                // $(`.screen__txt3`).fadeOut()
+                // $(`.screen__txt4`).show()
+                // $(`.screen__pic1`).fadeOut()
+                // $(`.screen__pic2`).fadeOut()
+                // $(`.screen__pic3`).fadeOut()
+                // $(`.screen__pic4`).show()
+					    $(`#Iframe4`).show();
+                        $(`#myCar3`).hide();
+						// window.location.href="http://localhost:63342/workspace/kr_3dview/krpano-1.19-pr16/viewer/krpano.html?xml=examples/webvr/krpano_vr.xml&html5=only+webgl"
+
+                default:
+            }
+        });
+
+        function getmove(n1,n2,n3,n4) {
+            $(`#myCar`+n1).show()
+            $(`#Iframe`+n1).show()
+            $(`#myCar`+n3).hide()
+            $(`#Iframe`+n4).hide()
+            $(`.screen__txt`+n1).fadeIn()
+            $(`.screen__txt`+n2).hide()
+            $(`.screen__txt`+n3).hide()
+            $(`.screen__txt`+n4).hide()
+            $(`.screen__pic`+n1).fadeIn()
+            $(`.screen__pic`+n2).hide()
+            $(`.screen__pic`+n3).hide()
+            $(`.screen__pic`+n4).hide()
+        }
+        function  gettouch(n1,n2,n3,n4,speed) {
+            $(`#drageable`+n1).on(`touchend`,function () {
+                let box=document.getElementById(`drageable`);
+                animate2(box,speed)
+                getmove(n1,n2,n3,n4)
+            })
+        }
+
+        function movemouse(e){
+            if (isdrag){
+                var m = $(`.screen__menu`).width();
+                var s = $(`#drageable`).offset().left;
+                var n = tx + e.touches[0].pageX - x;
+                if (n>325){
+                    $("#drageable").css("left",325);
+
+                }else {
+                    $("#drageable").css("left",n > 0 ? n:0);
+
+                }
+                // console.log(n)
+                return false;
+            }
+        }
+
+        function getPositsion(e) {
+            var result=0;
+            var n = tx + e.changedTouches[0].pageX - x;
+            // var n= e.changedTouches[0].pageX-x;
+            console.log(n)
+            if (n<54){
+                result =1;
+                speed = 0;
+            }
+            else if (n>54 && n<160){
+                result =2;
+                speed = 110;
+            }else if (n>160 && n<275){
+                result =3;
+                speed = 217;
+            }else {
+                result =4;
+                speed = 325;
+            }
+
+            return result;
+        }
+        function detectOrient(){
+            if (Math.abs(window.orientation) === 90) {
+                console.log(`SHU`)
+                $(`.swiper-container`).css("opacity","1")
+                function scaleEle(selector,position){
+                    var pageScale;
+                    var currentScale=screenWidth/screenHeight;
+                    var originScale=568/256;
+
+                    if(currentScale>originScale){
+                        pageScale=screenHeight/256;
+                    }else{
+                        pageScale=screenWidth/568;
+                    }
+                    console.log(pageScale);
+                    var n =pageScale;
+                    $(selector).css({"-webkit-transform-origin":position,"transform-origin":position});
+                    $(selector).css({"transform":"scale("+ n+")","-webkit-transform":"scale("+n+")"})
+                }
+                var screenHeight = document.documentElement.clientHeight,
+                    screenWidth = document.documentElement.clientWidth;
+                scaleEle(".screen__inner","center");
+                scaleEle("#handle","center");
+                scaleEle(".dian","center");
+
+            } else {
+                $(`.swiper-container`).css("opacity","0")
+//横屏处理
+                function landScape(config){
+                    var bg = config && config.bg ? config.bg : "#000",
+                        txt = config && config.txt ? config.txt : "请解除竖排锁定，使用横屏浏览",
+                        img = config && config.img ? config.img : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAXVBMVEUAAAD29vb////x8fH////////x8fH5+fn29vby8vL////5+fn39/f6+vr////x8fH////////+/v7////09PT////x8fH39/f////////////////////x8fH///+WLTLGAAAAHXRSTlMAIpML+gb4ZhHWn1c2gvHBvq1uKJcC6k8b187lQ9yhhboAAAQYSURBVHja7d3blpowFIDhTUIAOchZDkre/zE7ycySrbUUpsRN2/1fzO18KzEqxEVgTiZNfgmmtxRc8iaR8HNe8x4BtjQePKayYCIoyBSgvNNE1AkNSHqZyLqk97EgUCCHBzZ5mkg7ScvIJuIyOyXBRFxgpqWZyGsAZLB1KjsJi8nutHU4JCRbFRH8tmirI9k8Jx2sqNs8K/m0LQkrktO2crgcgXGB4AiTEsB0hJfo9MGgX7CGcYiYwQxmMOOvZwRhBG8tCoMXjBDeXvWCEcHbi14wgCBmMIMZzGAGM5jxETNwzMAxA8cMHDNwzMAxA8cMHDNwzMAxA8cMHDNwzMAxY6E2rUQxnH2tz9cirlJFwFBJedaPnUv0M7++egPDE8iAJcIDmxwH5wwv9vUviw2kLbVO3TJU5uul/EyB0FoLp4x60PdGUd3qPurrWyjGGTc05u+1dcgI7/+tCCPARWGhH7o5Y7RCf+bH9ctXLp6v2BVDxfqz0oPXeSVaNtINo/1SXDv4dck8IIkbhtC2ol+iouEonTBCbYvVMnXOjxww6s/RFrBUpXHh/gw1rHj5d/qhYn9Gpk2FWh6xRBRX5Oj3Znh2Sq49/L6+y8pB26q9GbE2dbA2mVbx6I+7MfBglLCttm73ZQi7AD3iL4HqjFYJHSPRppqaUaJ3ATpGa+ckpGak2hRRMyqjGMkvl+xyFeSMwjAqcsZgGDdyhl0oNTnDN4yenJGZFGxNChP5/Y3efh6SM2rDOJMzboYxkDMqwyjIGcIw6F+io2FU1IxIm1JqRmgXSkvNKNCXeTpGrU0JNSO2c6LIGPgCS8AuDHz9ta0SXWDtxoDRH+MqlbC2Dt2G2JFRadtQZt2qq/orGowdGb2euxYiqWEpVWhTBnszoNAPdStuQwxqf0aocdWKW4Z+DfszIh8pxJqbuCE4YAC+4bm0evtipjpgJHeFnyyt1Ku2xa0bhjxr27p75rECNwyI9ZwvXkHq+7aTaMEV44YYy/spfgjgjNHaWW+GeUhGEX7tLlVinIFDDSgnOwhi1V6bU0b6tVS9eAERe863g4dRrtiHdc6o+nn5vtyVVgR79Cqt4uL6gfHPQyGqtP2vf7HADGbcYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JjhtOM+J/AgT008yDMkN/dPP9hzS8zAMQN3OEYeekp5YU7KOKXwVXqiY+QS7smcinGKABWdiBgpPJTSMHJ4KidhhPBUSMLw4CmPhKHgKUXCkHsygum71ftNSgCX6bsl8FQyfbcL5EdYsDk0R3j7aiA5wpt5AjKg/2gLJEBD/0Hf2OOf/vRrj6z/7GtP4B3nMKyjHA12kIPSjnJs3FEO0TvKkYJHOWCR+rjJH0Vn6fI5PjNbAAAAAElFTkSuQmCC";
+                    $('body').append('<style type="text/css">@-webkit-keyframes rotation{10%{transform: rotate(90deg); -webkit-transform: rotate(90deg)} 50%, 60%{transform: rotate(0deg); -webkit-transform: rotate(0deg)} 90%{transform: rotate(90deg); -webkit-transform: rotate(90deg)} 100%{transform: rotate(90deg); -webkit-transform: rotate(90deg)} } @keyframes rotation{10%{transform: rotate(90deg); -webkit-transform: rotate(90deg)} 50%, 60%{transform: rotate(0deg); -webkit-transform: rotate(0deg)} 90%{transform: rotate(90deg); -webkit-transform: rotate(90deg)} 100%{transform: rotate(90deg); -webkit-transform: rotate(90deg)} } #orientLayer{display: none; z-index: 999999;} @media all and (orientation : portrait){#orientLayer{display: block;} } .mod-orient-layer{display: none; position: fixed; height: 100%; width: 100%; left: 0; top: 0; right: 0; bottom: 0; background: '+bg+'; z-index: 9997} .mod-orient-layer__content{position: absolute; width: 100%; top: 45%; margin-top: -75px; text-align: center} .mod-orient-layer__icon-orient{background-image: url('+img+'); display: inline-block; width: 67px; height: 109px; transform: rotate(90deg); -webkit-transform: rotate(90deg); -webkit-animation: rotation infinite 1.5s ease-in-out; animation: rotation infinite 1.5s ease-in-out; -webkit-background-size: 67px; background-size: 67px} .mod-orient-layer__desc{margin-top: 20px; font-size: 15px; color: #fff}</style><div id="orientLayer" class="mod-orient-layer"> <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i> <div class="mod-orient-layer__desc">'+txt+'</div> </div></div>');
+                }
+//竖屏提示
+                landScape();
+            }
+        }
+        function selectmouse(e){
+            isdrag = true;
+            tx = parseInt(document.getElementById("drageable").style.left+0);
+            x = e.touches[0].pageX;
+            return false;
+        }
+
+        function animate2(ele,target) {
+            clearInterval(ele.timer);
+            ele.timer = setInterval(function () {
+                //获取步长 确定移动方向(正负值) 步长应该是越来越小的，缓动的算法。
+                var step = (target-ele.offsetLeft)/5;
+                //对步长进行二次加工(大于0向上取整,小于0项下取整)
+                step = step>0?Math.ceil(step):Math.floor(step);
+                //动画原理： 目标位置 = 当前位置 + 步长
+                ele.style.left = ele.offsetLeft + step + "px";
+                //检测缓动动画有没有停止
+                if(Math.abs(target-ele.offsetLeft)<=Math.abs(step)){
+                    ele.style.left = target + "px"; //直接移动指定位置
+                    clearInterval(ele.timer);
+                }
+            },30);
+        }
+        gettouch(2,1,3,4,110)
+        gettouch(3,1,2,4,217)
+        gettouch(4,1,2,3,325)
+        gettouch(1,2,3,4,0)
+        detectOrient();
+
+    })
+
+</script>
+
+</html>
